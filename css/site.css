@@ -1,0 +1,843 @@
+
+:root {
+  --verde: #1a5c38;
+  --verde-escuro: #0d3320;
+  --verde-vivo: #247a4a;
+  --ocre: #c4921a;
+  --papel: #f1eee6;
+  --papel-2: #e7e2d4;
+  --tinta: #1e1b16;
+  --apagado: #5e5a52;
+  --linha: #cfc9b8;
+  --branco: #faf9f5;
+  --sombra: 0 1px 0 rgb(30 27 22 / 8%);
+  --fonte: "Barlow", "Segoe UI", sans-serif;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --medida: 68rem;
+
+  /* Escala fluida de espaçamento: cresce com a viewport em vez
+     de saltar apenas nos breakpoints. */
+  --esp-1: clamp(0.5rem, 0.45rem + 0.3vw, 0.7rem);
+  --esp-2: clamp(0.85rem, 0.7rem + 0.6vw, 1.15rem);
+  --esp-3: clamp(1.3rem, 1rem + 1.2vw, 1.9rem);
+  --esp-4: clamp(2rem, 1.5rem + 2vw, 2.9rem);
+  --esp-5: clamp(2.6rem, 1.8rem + 3vw, 4.2rem);
+
+  /* Escala fluida de tipografia */
+  --fs-eyebrow: clamp(0.76rem, 0.72rem + 0.15vw, 0.82rem);
+  --fs-lead: clamp(1.05rem, 0.98rem + 0.3vw, 1.2rem);
+  --fs-h2: clamp(1.8rem, 1.35rem + 2.2vw, 2.55rem);
+  --fs-h1: clamp(3rem, 1.5rem + 8vw, 6.4rem);
+  --fs-numero: clamp(1.5rem, 1.2rem + 2vw, 1.85rem);
+
+  --transicao: 160ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  color: var(--tinta);
+  background: var(--papel);
+  font-family: var(--fonte);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  background-image:
+    linear-gradient(180deg, rgb(26 92 56 / 4%), transparent 12rem),
+    repeating-linear-gradient(
+      -18deg,
+      transparent,
+      transparent 11px,
+      rgb(30 27 22 / 1.4%) 12px
+    );
+  scrollbar-color: var(--verde) var(--papel-2);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--verde);
+  transition: color var(--transicao);
+}
+
+a:hover {
+  color: var(--verde-escuro);
+}
+
+/* Foco visível único e consistente para todo o site — melhora
+   bastante a navegação por teclado, que a versão anterior deixava
+   por conta do padrão (variável) do navegador. */
+:focus-visible {
+  outline: 2px solid var(--ocre);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--ocre);
+  color: var(--verde-escuro);
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 40;
+  padding: 0.4rem 0.7rem;
+  background: var(--verde-escuro);
+  color: var(--branco);
+  transition: top var(--transicao);
+}
+
+.skip:focus {
+  top: 0.75rem;
+}
+
+.faixa {
+  background: var(--verde-escuro);
+  color: #dce8e0;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.faixa p {
+  max-width: var(--medida);
+  margin: 0 auto;
+  padding: 0.4rem 1.25rem;
+}
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgb(241 238 230 / 94%);
+  border-bottom: 1px solid var(--linha);
+}
+
+.topo-interno {
+  max-width: var(--medida);
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.marca {
+  text-decoration: none;
+  color: var(--verde-escuro);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.marca span {
+  display: block;
+  font-family: var(--fonte);
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--apagado);
+  margin-top: 0.15rem;
+}
+
+.menu-btn {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--linha);
+  background: var(--branco);
+  color: var(--tinta);
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transition: background var(--transicao), color var(--transicao), border-color var(--transicao);
+}
+
+.menu-btn .icone {
+  transition: transform var(--transicao);
+}
+
+.menu-btn[aria-expanded="true"] {
+  background: var(--verde);
+  color: var(--branco);
+  border-color: var(--verde);
+}
+
+.menu-btn[aria-expanded="true"] .icone {
+  transform: rotate(90deg);
+}
+
+.nav-principal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.1rem;
+  justify-content: flex-end;
+}
+
+.nav-principal a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--tinta);
+  font-size: 0.95rem;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transicao), color var(--transicao);
+}
+
+.nav-principal a:hover,
+.nav-principal a:focus-visible {
+  border-bottom-color: var(--ocre);
+  color: var(--verde-escuro);
+}
+
+.nav-principal a[href="#inscricao"] {
+  color: var(--verde);
+  font-weight: 600;
+}
+
+.envolve {
+  max-width: var(--medida);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+#inicio {
+  padding: var(--esp-4) 0 var(--esp-5);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.85fr);
+  gap: var(--esp-4) var(--esp-5);
+  align-items: end;
+  border-bottom: 1px solid var(--linha);
+}
+
+.olho {
+  margin: 0 0 0.35rem;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--verde);
+}
+
+h1 {
+  margin: 0 0 0.7rem;
+  font-family: var(--display);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+  color: var(--verde-escuro);
+}
+
+.lead {
+  margin: 0 0 0.7rem;
+  max-width: 36rem;
+  font-size: var(--fs-lead);
+}
+
+.nota {
+  margin: 0;
+  color: var(--apagado);
+  font-size: 0.95rem;
+}
+
+.acoes {
+  grid-column: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-1) 0.9rem;
+  margin-top: 1.4rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 0.55rem 1.05rem;
+  font-weight: 600;
+  border: 1px solid var(--verde);
+  transition: background var(--transicao), color var(--transicao), transform var(--transicao);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-cheio {
+  background: var(--verde);
+  color: var(--branco);
+}
+
+.btn-cheio:hover {
+  background: var(--verde-escuro);
+  color: var(--branco);
+}
+
+.btn-vazio {
+  background: transparent;
+  color: var(--verde-escuro);
+}
+
+.btn-vazio:hover {
+  background: var(--papel-2);
+  color: var(--verde-escuro);
+}
+
+#cronometro {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  padding: var(--esp-3) var(--esp-3) 1.2rem;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#cronometro h2 {
+  margin: 0 0 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c9dfd0;
+}
+
+#cronometro time {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4.3rem, 1fr));
+  gap: 0.45rem;
+}
+
+.bloco-tempo {
+  text-align: center;
+  border: 1px dashed rgb(250 249 245 / 28%);
+  padding: 0.45rem 0.2rem 0.4rem;
+}
+
+.bloco-tempo strong {
+  display: block;
+  font-family: var(--display);
+  font-size: var(--fs-numero);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.bloco-tempo span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #c9dfd0;
+}
+
+#cronometro .evento-hoje {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+#inicio,
+.secao,
+#inscricao,
+#contato {
+  scroll-margin-top: 4.5rem;
+}
+
+.secao {
+  padding: var(--esp-4) 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.secao h2 {
+  margin: 0.15rem 0 0.55rem;
+  font-family: var(--display);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--verde-escuro);
+}
+
+.secao > header p:last-child {
+  margin: 0;
+  max-width: 38rem;
+  color: var(--apagado);
+}
+
+.marca-secao {
+  display: block;
+  width: 2.4rem;
+  height: 3px;
+  margin: 0.7rem 0 1.4rem;
+  background: var(--ocre);
+}
+
+#sobre .corpo-sobre {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(14rem, 0.8fr);
+  gap: var(--esp-3) var(--esp-4);
+}
+
+#sobre p {
+  margin: 0 0 0.85rem;
+}
+
+#sobre p:last-child {
+  margin-bottom: 0;
+}
+
+.fatos {
+  margin: 0;
+  padding: 0.2rem 0 0;
+  border-top: 1px solid var(--linha);
+}
+
+.fatos > div {
+  display: grid;
+  grid-template-columns: 6.2rem 1fr;
+  gap: 0.5rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.fatos dt {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--apagado);
+}
+
+.fatos dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.resumo-salas {
+  margin: 1.2rem 0 0;
+  font-size: 0.95rem;
+  color: var(--apagado);
+}
+
+.grupo-oficinas + .grupo-oficinas {
+  margin-top: 1.8rem;
+}
+
+.grupo-oficinas h3 {
+  margin: 0 0 0.15rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  color: var(--verde-escuro);
+}
+
+.quando {
+  margin: 0 0 0.7rem;
+  color: var(--apagado);
+  font-size: 0.92rem;
+}
+
+/* Antes: duas colunas fixas que viravam uma só de repente em
+   860px. Agora o grid decide sozinho quantas colunas cabem —
+   fica fluido em qualquer largura, sem depender de um número
+   mágico de breakpoint. */
+.lista-oficinas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
+  column-gap: var(--esp-3);
+  row-gap: 0;
+}
+
+.oficina {
+  margin: 0;
+  padding: 0.75rem 0 0.75rem 0.85rem;
+  border-left: 3px solid var(--verde);
+  border-bottom: 1px dotted var(--linha);
+}
+
+.oficina h3,
+.oficina h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+
+.oficina p {
+  margin: 0.1rem 0;
+  font-size: 0.9rem;
+  color: var(--apagado);
+}
+
+.oficina p strong {
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.grade {
+  display: grid;
+  gap: var(--esp-3);
+}
+
+.bloco-rodada h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--verde-escuro);
+}
+
+.tabela-wrap {
+  overflow-x: auto;
+  margin-top: 0.55rem;
+  border: 1px solid var(--linha);
+  background: var(--branco);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0 0 0.45rem;
+  font-size: 0.82rem;
+  color: var(--apagado);
+}
+
+thead th {
+  background: var(--verde);
+  color: var(--branco);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+}
+
+tbody td {
+  padding: 0.55rem 0.75rem;
+  border-top: 1px solid var(--linha);
+  vertical-align: top;
+}
+
+tbody tr {
+  transition: background var(--transicao);
+}
+
+tbody tr:nth-child(even) {
+  background: rgb(26 92 56 / 4%);
+}
+
+/* Realça a linha sob o cursor — útil numa grade de horários com
+   várias colunas, onde é fácil "perder a linha" ao ler. */
+tbody tr:hover {
+  background: color-mix(in srgb, var(--verde) 12%, var(--branco));
+}
+
+/* Antes: 1.2fr / 0.9fr / 0.9fr fixas. A primeira imagem continua
+   se destacando pela proporção mais alta (aspect-ratio abaixo),
+   mas agora as colunas se reorganizam sozinhas conforme o espaço
+   disponível, em vez de pular direto para uma coluna só. */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  gap: var(--esp-1);
+}
+
+.galeria figure {
+  margin: 0;
+  background: var(--papel-2);
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #d8d2c4,
+      #d8d2c4 8px,
+      #cfc8b8 8px,
+      #cfc8b8 16px
+    );
+}
+
+.galeria figure:first-child img {
+  aspect-ratio: 5 / 4;
+}
+
+figcaption {
+  padding: 0.4rem 0.55rem 0.55rem;
+  font-size: 0.82rem;
+  color: var(--apagado);
+}
+
+#inscricao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-2) var(--esp-4);
+  background: var(--papel-2);
+  margin: 0 calc(50% - 50vw);
+  padding: var(--esp-3) calc(50vw - min(50vw, calc(var(--medida) / 2)) + 1.25rem);
+  border-bottom: 1px solid var(--linha);
+}
+
+#inscricao p {
+  margin: 0.35rem 0 0;
+  max-width: 34rem;
+}
+
+.rodape {
+  background: var(--verde-escuro);
+  color: #d5e4db;
+  padding: var(--esp-4) 0 1.4rem;
+}
+
+.rodape a {
+  color: #f3e2a8;
+}
+
+.rodape h2 {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9ec9b0;
+}
+
+/* Colunas do rodapé também passam a se reorganizar sozinhas —
+   de 4 para 3, 2 ou 1 coluna conforme o espaço, sem um único
+   salto brusco em 860px. */
+.colunas-rodape {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr));
+  gap: var(--esp-3) var(--esp-2);
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.logos img {
+  max-height: 3.2rem;
+  width: auto;
+  background: var(--branco);
+  padding: 0.25rem;
+}
+
+.rodape address {
+  font-style: normal;
+}
+
+.redes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.redes a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.base-rodape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem 1rem;
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(250 249 245 / 14%);
+  font-size: 0.88rem;
+}
+
+/* =========================================================
+   ÍCONES
+   Funciona com qualquer conjunto de ícones em SVG (Lucide,
+   Feather, Heroicons outline). Veja o comentário no topo do
+   arquivo para o snippet de uso com Lucide.
+   ========================================================= */
+.icone {
+  --tamanho-icone: 1.1em;
+  width: var(--tamanho-icone);
+  height: var(--tamanho-icone);
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.2em;
+}
+
+.icone-grande {
+  --tamanho-icone: 1.6em;
+}
+
+.icone-pequeno {
+  --tamanho-icone: 0.9em;
+}
+
+@media (max-width: 860px) {
+  .menu-btn {
+    display: inline-flex;
+  }
+
+  .nav-principal {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0;
+    background: var(--papel);
+    border-bottom: 1px solid var(--linha);
+    padding: 0.4rem 1.25rem 0.8rem;
+  }
+
+  .topo:has(.menu-btn[aria-expanded="true"]) .nav-principal,
+  .nav-principal.aberto {
+    display: flex;
+  }
+
+  .nav-principal a {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--linha);
+  }
+
+  #inicio {
+    grid-template-columns: 1fr;
+  }
+
+  .acoes {
+    margin-top: 0;
+  }
+
+  #sobre .corpo-sobre {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria figure:first-child img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .fatos > div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  tbody tr {
+    padding: 0.55rem 0.65rem 0.7rem;
+    border-top: 3px solid var(--verde);
+  }
+
+  tbody td {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0.4rem;
+    border: 0;
+    padding: 0.2rem 0;
+  }
+
+  tbody td::before {
+    content: attr(data-rotulo);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--apagado);
+  }
+
+  .tabela-wrap {
+    border: 0;
+    background: transparent;
+  }
+}
+
+@media (max-width: 420px) {
+  .acoes {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
