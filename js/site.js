@@ -63,24 +63,6 @@
     });
   }
 
-  // Carrossel de fotos no fundo do início ----------------------------
-  var carrossel = document.querySelector(".carrossel-fundo");
-  if (carrossel) {
-    var fotos = carrossel.querySelectorAll(".carrossel-imagem");
-    var reduzirMovimento =
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (fotos.length > 1 && !reduzirMovimento) {
-      var indiceAtual = 0;
-      setInterval(function () {
-        fotos[indiceAtual].classList.remove("ativa");
-        indiceAtual = (indiceAtual + 1) % fotos.length;
-        fotos[indiceAtual].classList.add("ativa");
-      }, 5000);
-    }
-  }
-
   // Grade de horários: seleção de oficinas e conflito de horário ------
   var slotsOficina = document.querySelectorAll(".oficina-slot");
 
