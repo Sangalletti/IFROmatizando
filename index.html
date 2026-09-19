@@ -30,6 +30,13 @@
         <span>III Workshop</span>
       </a>
 
+      <div id="cronometro" class="menu-cronometro">
+        <h2>Faltam</h2>
+        <time id="tempo-evento" datetime="2026-10-29T09:00:00-04:00">
+          00 dias, 00 horas, 00 minutos e 00 segundos
+        </time>
+      </div>
+
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
         Menu
       </button>
@@ -49,6 +56,14 @@
   <main id="conteudo">
     <div class="envolve">
       <section id="inicio">
+        <div class="carrossel-fundo" aria-hidden="true">
+          <img class="carrossel-imagem ativa" src="fotos/01.jpeg" alt="" fetchpriority="high">
+          <img class="carrossel-imagem" src="fotos/02.jpeg" alt="" loading="lazy">
+          <img class="carrossel-imagem" src="fotos/03.jpeg" alt="" loading="lazy">
+          <img class="carrossel-imagem" src="fotos/04.jpeg" alt="" loading="lazy">
+          <img class="carrossel-imagem" src="fotos/05.jpeg" alt="" loading="lazy">
+        </div>
+
         <header>
           <p class="olho">III Workshop de Informática</p>
           <h1>IFROmatizando</h1>
@@ -58,13 +73,6 @@
           </p>
           <p class="nota">Aberto para estudantes e comunidade.</p>
         </header>
-
-        <div id="cronometro">
-          <h2>Faltam</h2>
-          <time id="tempo-evento" datetime="2026-10-29T09:00:00-04:00">
-            00 dias, 00 horas, 00 minutos e 00 segundos
-          </time>
-        </div>
 
         <nav class="acoes" aria-label="Ações do evento">
           <a
@@ -133,7 +141,7 @@
 
         <div class="grupo-oficinas">
           <h3>Rodada 1</h3>
-          <p class="quando">09h00 – 10h00</p>
+          <p class="quando">Em breve</p>
           <div class="lista-oficinas">
             <article class="oficina">
               <h4>HTML + CSS: Criando a sua primeira página</h4>
@@ -171,7 +179,7 @@
 
         <div class="grupo-oficinas">
           <h3>Rodada 2</h3>
-          <p class="quando">10h20 – 11h20</p>
+          <p class="quando">Em breve</p>
           <div class="lista-oficinas">
             <article class="oficina">
               <h4>Crimpagem de Cabo de Rede</h4>
@@ -213,117 +221,231 @@
           <p class="olho">Grade de horários</p>
           <h2>Monte seu roteiro do dia</h2>
           <span class="marca-secao" aria-hidden="true"></span>
-          <p>Uma oficina por sala em cada rodada. Dá para cruzar o campus entre as duas.</p>
+          <p>
+            Organizada por sala. Marque as oficinas que pretende fazer: se
+            duas escolhas caírem no mesmo horário, elas aparecem em
+            vermelho, porque não dá para estar em dois lugares ao mesmo
+            tempo.
+          </p>
         </header>
 
-        <div class="grade">
-          <section class="bloco-rodada">
-            <h3>Rodada 1</h3>
-            <p class="quando">09h00 – 10h00</p>
-            <div class="tabela-wrap">
-              <table>
-                <caption>Oficinas da Rodada 1</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Sala</th>
-                    <th scope="col">Oficina</th>
-                    <th scope="col">Responsável</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-rotulo="Sala">Lab A</td>
-                    <td data-rotulo="Oficina">HTML + CSS: Criando a sua primeira página</td>
-                    <td data-rotulo="Responsável">Maria Rita e Ketelin</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab B</td>
-                    <td data-rotulo="Oficina">A definir</td>
-                    <td data-rotulo="Responsável">Vitor Altatec</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab C</td>
-                    <td data-rotulo="Oficina">Demonstração de Hardware</td>
-                    <td data-rotulo="Responsável">Connect</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab D</td>
-                    <td data-rotulo="Oficina">Modelagem 3D com Blender</td>
-                    <td data-rotulo="Responsável">Julia e Ane</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab E</td>
-                    <td data-rotulo="Oficina">Ensinando o Computador a Enxergar: Introdução à Visão Computacional com Python</td>
-                    <td data-rotulo="Responsável">Camila Santos</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Sala 1</td>
-                    <td data-rotulo="Oficina">Skill Issue: Harness Engineering for Coding Agents</td>
-                    <td data-rotulo="Responsável">Clayton Ferrari</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab Procint</td>
-                    <td data-rotulo="Oficina">Montagem de Computadores</td>
-                    <td data-rotulo="Responsável">Adriadina, Caio, Maria Eduarda, Mariana, Fabio, Waiser e Yasmin Moratto (2°A)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+        <div class="resumo-cabecalho">
+          <h3>Seu roteiro</h3>
+          <button type="button" id="limpar-selecao" class="limpar-btn">Limpar seleção</button>
+        </div>
 
-          <section class="bloco-rodada">
-            <h3>Rodada 2</h3>
-            <p class="quando">10h20 – 11h20</p>
-            <div class="tabela-wrap">
-              <table>
-                <caption>Oficinas da Rodada 2</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Sala</th>
-                    <th scope="col">Oficina</th>
-                    <th scope="col">Responsável</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-rotulo="Sala">Lab A</td>
-                    <td data-rotulo="Oficina">Crimpagem de Cabo de Rede</td>
-                    <td data-rotulo="Responsável">Fernando Domiciano</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab B</td>
-                    <td data-rotulo="Oficina">Roblox Studio</td>
-                    <td data-rotulo="Responsável">Natã Frederico</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab C</td>
-                    <td data-rotulo="Oficina">Usando Docker</td>
-                    <td data-rotulo="Responsável">Gabriel Oliveira</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab D</td>
-                    <td data-rotulo="Oficina">Computação Gráfica</td>
-                    <td data-rotulo="Responsável">Alan Oliveira</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab E</td>
-                    <td data-rotulo="Oficina">Desenvolvimento de Software com IA</td>
-                    <td data-rotulo="Responsável">Julio Sabaini</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Sala 1</td>
-                    <td data-rotulo="Oficina">Crimpagem de Cabo de Rede</td>
-                    <td data-rotulo="Responsável">Sued Policarpo</td>
-                  </tr>
-                  <tr>
-                    <td data-rotulo="Sala">Lab Procint</td>
-                    <td data-rotulo="Oficina">Fundamentos de Placas de Vídeo</td>
-                    <td data-rotulo="Responsável">Cauã Almeida Camargo, Marco Antonio Bacarin, Henrique Torriani Mezabarba</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+        <div class="resumo-roteiro" id="resumo-roteiro" aria-live="polite">
+          <div class="resumo-item" data-rodada="r1" data-estado="vazio">
+            <p class="resumo-rotulo">Em breve</p>
+            <p class="resumo-estado">Nenhuma oficina selecionada ainda</p>
+          </div>
+          <div class="resumo-item" data-rodada="r2" data-estado="vazio">
+            <p class="resumo-rotulo">Em breve</p>
+            <p class="resumo-estado">Nenhuma oficina selecionada ainda</p>
+          </div>
+        </div>
+
+        <table id="tabela-horarios" hidden aria-hidden="true">
+          <tbody>
+            <tr data-oficina="r1-lab-a" data-horario="r1"><td>09:00 - 10:00</td></tr>
+            <tr data-oficina="r2-lab-a" data-horario="r2"><td>10:20 - 11:20</td></tr>
+            <tr data-oficina="r1-lab-b" data-horario="r1"><td>09:00 - 10:00</td></tr>
+            <tr data-oficina="r2-lab-b" data-horario="r2"><td>10:20 - 11:20</td></tr>
+            <tr data-oficina="r1-lab-c" data-horario="r1"><td>09:00 - 10:00</td></tr>
+            <tr data-oficina="r2-lab-c" data-horario="r2"><td>10:20 - 11:20</td></tr>
+            <tr data-oficina="r1-lab-d" data-horario="r1"><td>09:00 - 10:00</td></tr>
+            <tr data-oficina="r2-lab-d" data-horario="r2"><td>10:20 - 11:20</td></tr>
+            <tr data-oficina="r1-lab-e" data-horario="r1"><td>09:00 - 10:00</td></tr>
+            <tr data-oficina="r2-lab-e" data-horario="r2"><td>10:20 - 11:20</td></tr>
+            <tr data-oficina="r1-sala-1" data-horario="r1"><td>09:00 - 10:00</td></tr>
+            <tr data-oficina="r2-sala-1" data-horario="r2"><td>10:20 - 11:20</td></tr>
+            <tr data-oficina="r1-lab-procint" data-horario="r1"><td>09:00 - 10:00</td></tr>
+            <tr data-oficina="r2-lab-procint" data-horario="r2"><td>10:20 - 11:20</td></tr>
+          </tbody>
+        </table>
+
+        <div class="labs-grade">
+          <article class="lab-card" data-lab="lab-a">
+            <h3>Lab A</h3>
+            <ul class="lab-oficinas">
+              <li class="oficina-slot" data-rodada="r1">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>HTML + CSS: Criando a sua primeira página</h4>
+                  <p class="oficina-responsavel">Maria Rita e Ketelin</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r1-lab-a">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+              <li class="oficina-slot" data-rodada="r2">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Crimpagem de Cabo de Rede</h4>
+                  <p class="oficina-responsavel">Fernando Domiciano</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r2-lab-a">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="lab-card" data-lab="lab-b">
+            <h3>Lab B</h3>
+            <ul class="lab-oficinas">
+              <li class="oficina-slot" data-rodada="r1">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>A definir</h4>
+                  <p class="oficina-responsavel">Vitor Altatec</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r1-lab-b">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+              <li class="oficina-slot" data-rodada="r2">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Roblox Studio</h4>
+                  <p class="oficina-responsavel">Natã Frederico</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r2-lab-b">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="lab-card" data-lab="lab-c">
+            <h3>Lab C</h3>
+            <ul class="lab-oficinas">
+              <li class="oficina-slot" data-rodada="r1">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Demonstração de Hardware</h4>
+                  <p class="oficina-responsavel">Connect</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r1-lab-c">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+              <li class="oficina-slot" data-rodada="r2">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Usando Docker</h4>
+                  <p class="oficina-responsavel">Gabriel Oliveira</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r2-lab-c">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="lab-card" data-lab="lab-d">
+            <h3>Lab D</h3>
+            <ul class="lab-oficinas">
+              <li class="oficina-slot" data-rodada="r1">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Modelagem 3D com Blender</h4>
+                  <p class="oficina-responsavel">Julia e Ane</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r1-lab-d">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+              <li class="oficina-slot" data-rodada="r2">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Computação Gráfica</h4>
+                  <p class="oficina-responsavel">Alan Oliveira</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r2-lab-d">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="lab-card" data-lab="lab-e">
+            <h3>Lab E</h3>
+            <ul class="lab-oficinas">
+              <li class="oficina-slot" data-rodada="r1">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Ensinando o Computador a Enxergar: Introdução à Visão Computacional com Python</h4>
+                  <p class="oficina-responsavel">Camila Santos</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r1-lab-e">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+              <li class="oficina-slot" data-rodada="r2">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Desenvolvimento de Software com IA</h4>
+                  <p class="oficina-responsavel">Julio Sabaini</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r2-lab-e">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="lab-card" data-lab="sala-1">
+            <h3>Sala 1</h3>
+            <ul class="lab-oficinas">
+              <li class="oficina-slot" data-rodada="r1">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Skill Issue: Harness Engineering for Coding Agents</h4>
+                  <p class="oficina-responsavel">Clayton Ferrari</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r1-sala-1">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+              <li class="oficina-slot" data-rodada="r2">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Crimpagem de Cabo de Rede</h4>
+                  <p class="oficina-responsavel">Sued Policarpo</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r2-sala-1">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="lab-card" data-lab="lab-procint">
+            <h3>Lab Procint</h3>
+            <ul class="lab-oficinas">
+              <li class="oficina-slot" data-rodada="r1">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Montagem de Computadores</h4>
+                  <p class="oficina-responsavel">Adriadina, Caio, Maria Eduarda, Mariana, Fabio, Waiser e Yasmin Moratto (2°A)</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r1-lab-procint">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+              <li class="oficina-slot" data-rodada="r2">
+                <div class="oficina-info">
+                  <p class="oficina-horario">Em breve</p>
+                  <h4>Fundamentos de Placas de Vídeo</h4>
+                  <p class="oficina-responsavel">Cauã Almeida Camargo, Marco Antonio Bacarin, Henrique Torriani Mezabarba</p>
+                </div>
+                <button type="button" class="selecionar-btn" aria-pressed="false" data-oficina="r2-lab-procint">
+                  <span class="selecionar-texto">Quero participar</span>
+                </button>
+              </li>
+            </ul>
+          </article>
         </div>
       </section>
 
