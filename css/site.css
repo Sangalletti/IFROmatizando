@@ -217,6 +217,11 @@ p {
 }
 
 .marca {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 auto;
+  min-width: 0;
   text-decoration: none;
   color: var(--verde-escuro);
   font-family: var(--display);
@@ -224,6 +229,7 @@ p {
   font-size: 1.35rem;
   letter-spacing: 0.02em;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .marca span {
@@ -235,6 +241,7 @@ p {
   text-transform: uppercase;
   color: var(--apagado);
   margin-top: 0.15rem;
+  white-space: nowrap;
 }
 
 .menu-btn {
@@ -295,58 +302,83 @@ p {
   font-weight: 600;
 }
 
-.topo-interno #cronometro.menu-cronometro {
+.cronometro-abaixo-carrossel {
   display: flex;
-  flex: 0 1 auto;
+  justify-content: center;
+  padding: 1rem 1.25rem 0;
+  background: var(--papel);
+}
+
+#cronometro.menu-cronometro {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.45rem;
-  width: auto;
-  padding: 0.2rem 0.7rem;
-  background: var(--marinho-profundo);
+  gap: 0.5rem;
+  width: min(100%, 38rem);
+  padding: 1rem 1.1rem 1.05rem;
+  background: linear-gradient(135deg, var(--marinho-escuro) 0%, var(--marinho-profundo) 100%);
   color: var(--branco);
-  border: 1px solid var(--marinho-escuro);
-  border-radius: 0.35rem;
-  box-shadow: none;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 1rem;
+  box-shadow: var(--sombra);
 }
 
-.topo-interno #cronometro.menu-cronometro::before {
-  display: none;
+#cronometro.menu-cronometro::before {
+  content: "";
+  position: absolute;
+  inset: 0.6rem;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 0.75rem;
+  pointer-events: none;
 }
 
-.topo-interno #cronometro.menu-cronometro h2 {
+#cronometro.menu-cronometro h2 {
+  position: relative;
+  z-index: 1;
   margin: 0;
-  color: var(--aco-leve);
+  color: var(--papel-2);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+#cronometro.menu-cronometro time {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+  width: 100%;
+}
+
+#cronometro.menu-cronometro .bloco-tempo {
+  min-width: 0;
+  padding: 0.7rem 0.35rem 0.55rem;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 0.8rem;
+  background: rgb(255 255 255 / 6%);
+}
+
+#cronometro.menu-cronometro .bloco-tempo strong {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 1rem + 1vw, 2rem);
+}
+
+#cronometro.menu-cronometro .bloco-tempo span {
+  margin-top: 0.3rem;
+  color: var(--papel-2);
   font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.topo-interno #cronometro.menu-cronometro time {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.topo-interno #cronometro.menu-cronometro .bloco-tempo {
-  min-width: 2rem;
-  padding: 0.2rem 0.25rem;
-  border: 0;
-  border-radius: 0.2rem;
-  background: rgb(255 255 255 / 8%);
-}
-
-.topo-interno #cronometro.menu-cronometro .bloco-tempo strong {
-  font-family: var(--fonte);
-  font-size: 0.78rem;
-}
-
-.topo-interno #cronometro.menu-cronometro .bloco-tempo span {
-  margin-top: 0.1rem;
-  color: var(--aco-leve);
-  font-size: 0.46rem;
-}
-
-.topo-interno #cronometro.menu-cronometro .evento-hoje {
-  font-size: 0.75rem;
+#cronometro.menu-cronometro .evento-hoje {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .envolve {
@@ -441,20 +473,45 @@ h1 {
 .titulo-com-logo {
   display: flex;
   align-items: center;
-  gap: clamp(0.8rem, 2vw, 1.8rem);
+  gap: clamp(0.6rem, 1.5vw, 1.5rem);
   margin-bottom: 0.7rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  width: max-content;
+  max-width: 100%;
 }
 
 .titulo-com-logo h1 {
   margin: 0;
+  white-space: nowrap;
+  display: inline-block;
+  min-width: max-content;
+  font-size: clamp(2.1rem, 6vw, 5.4rem);
 }
 
 .logo-titulo {
   display: block;
-  flex: 0 0 clamp(10rem, 16vw, 17rem);
-  width: clamp(10rem, 16vw, 17rem);
-  height: clamp(6rem, 10vw, 9rem);
+  flex: 0 0 auto;
+  width: clamp(4.5rem, 14vw, 17rem);
+  height: auto;
+  max-width: 100%;
   object-fit: contain;
+}
+
+@media (max-width: 560px) {
+  .titulo-com-logo {
+    gap: 0.4rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .titulo-com-logo h1 {
+    font-size: clamp(1.9rem, 8vw, 3rem);
+  }
+
+  .logo-titulo {
+    width: clamp(3.2rem, 18vw, 5rem);
+  }
 }
 
 .lead {
@@ -1230,24 +1287,28 @@ figcaption {
   .topo-interno {
     gap: 0.6rem;
     padding: 0.65rem 1rem;
+    justify-content: flex-start;
   }
 
   .marca {
     min-width: 0;
-    flex: 0 1 7rem;
-    max-width: 7rem;
+    flex: 0 0 auto;
+    max-width: none;
     font-size: 1.08rem;
+    white-space: nowrap;
   }
 
   .marca span {
     font-size: 0.58rem;
     letter-spacing: 0.08em;
+    white-space: nowrap;
   }
 
   .menu-btn {
     flex: 0 0 auto;
     min-height: 2.7rem;
     min-width: 2.7rem;
+    margin-left: auto;
   }
 
   .topo-interno #cronometro.menu-cronometro {
