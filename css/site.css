@@ -1023,10 +1023,12 @@ figcaption {
   justify-content: space-between;
   gap: var(--esp-2) var(--esp-4);
   background: var(--papel-2);
-  width: 100%;
+  width: min(100%, 100%);
+  max-width: 100%;
   margin: 0;
   padding: var(--esp-3) clamp(1.25rem, 3vw, 3rem);
   border-bottom: 1px solid var(--linha);
+  box-sizing: border-box;
 }
 
 #inscricao p {
@@ -1523,16 +1525,22 @@ figcaption {
   }
 
   #inscricao {
+    flex-direction: column;
     align-items: stretch;
     gap: 1rem;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 1rem;
     padding-right: 1rem;
+    box-sizing: border-box;
   }
 
   #inscricao .btn {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .rodape {
