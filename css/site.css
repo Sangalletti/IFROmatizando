@@ -1653,6 +1653,12 @@ figcaption {
 }
 
 /* Telas com pouco espaço vertical. */
+@media (min-width: 861px) and (min-aspect-ratio: 20 / 9) {
+  .carrossel-fundo {
+    height: clamp(10rem, 24vh, 18rem);
+  }
+}
+
 @media (max-width: 860px) and (max-height: 620px) {
   #inicio {
     padding-top: 1.5rem;
