@@ -783,6 +783,46 @@ h1 {
   font-weight: 600;
 }
 
+.cronograma-wrapper {
+  width: 100%;
+  margin-top: var(--esp-3);
+  overflow-x: auto;
+}
+
+.cronograma-tabela {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  font-size: 0.92rem;
+}
+
+.cronograma-tabela th,
+.cronograma-tabela td {
+  padding: 0.7rem 0.65rem;
+  border: 1px solid var(--linha);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.cronograma-tabela thead th {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  font-family: var(--display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cronograma-tabela tbody tr:nth-child(even) {
+  background: var(--papel-2);
+}
+
+.cronograma-tabela tbody td:nth-child(5) {
+  min-width: 20rem;
+}
+
 /* Grade de horários: cabeçalho do resumo, cards do roteiro
    escolhido e a grade de LABs propriamente dita. */
 .resumo-cabecalho {
