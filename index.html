@@ -37,8 +37,7 @@
       <nav id="menu" class="nav-principal" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
         <a href="#sobre">Sobre</a>
-        <a href="#oficinas">Oficinas</a>
-        <a href="#horarios">Horários</a>
+        <a href="#horarios">Cronograma</a>
         <a href="#edicoes">Edições</a>
         <a href="#inscricao">Inscreva-se</a>
         <a href="#contato">Contato</a>
@@ -103,7 +102,7 @@
           >
             Inscreva-se no SUAP
           </a>
-          <a class="btn btn-vazio" href="#horarios">Ver grade de horários</a>
+          <a class="btn btn-vazio" href="#horarios">Ver cronograma</a>
         </nav>
       </section>
 
@@ -131,7 +130,7 @@
               A programação está organizada por sala e horário: escolha
               uma oficina por rodada e monte o seu roteiro.
             </p>
-            <p class="resumo-salas">7 salas simultâneas · 14 oficinas confirmadas</p>
+            <p class="resumo-salas">8 locais · 13 atividades programadas</p>
           </div>
 
           <dl class="fatos">
@@ -151,95 +150,10 @@
         </div>
       </section>
 
-      <section id="oficinas" class="secao">
-        <header>
-          <p class="olho">Programação</p>
-          <h2>Oficinas confirmadas</h2>
-          <span class="marca-secao" aria-hidden="true"></span>
-          <p>Agrupadas por rodada, com responsável e sala.</p>
-        </header>
-
-        <div class="grupo-oficinas">
-          <h3>Rodada 1</h3>
-          <p class="quando">Em breve</p>
-          <div class="lista-oficinas">
-            <article class="oficina">
-              <h4>HTML + CSS: Criando a sua primeira página</h4>
-              <p><strong>Lab A</strong> · Maria Rita e Ketelin</p>
-            </article>
-            <article class="oficina">
-              <h4>A definir</h4>
-              <p><strong>Lab B</strong> · Vitor Altatec</p>
-            </article>
-            <article class="oficina">
-              <h4>Demonstração de Hardware</h4>
-              <p><strong>Lab C</strong> · Connect</p>
-            </article>
-            <article class="oficina">
-              <h4>Modelagem 3D com Blender</h4>
-              <p><strong>Lab D</strong> · Julia e Ane</p>
-            </article>
-            <article class="oficina">
-              <h4>Ensinando o Computador a Enxergar: Introdução à Visão Computacional com Python</h4>
-              <p><strong>Lab E</strong> · Camila Santos</p>
-            </article>
-            <article class="oficina">
-              <h4>Skill Issue: Harness Engineering for Coding Agents</h4>
-              <p><strong>Sala 1</strong> · Clayton Ferrari</p>
-            </article>
-            <article class="oficina">
-              <h4>Montagem de Computadores</h4>
-              <p>
-                <strong>Lab Procint</strong> · Adriadina, Caio, Maria Eduarda,
-                Mariana, Fabio, Waiser e Yasmin Moratto (2°A)
-              </p>
-            </article>
-          </div>
-        </div>
-
-        <div class="grupo-oficinas">
-          <h3>Rodada 2</h3>
-          <p class="quando">Em breve</p>
-          <div class="lista-oficinas">
-            <article class="oficina">
-              <h4>Crimpagem de Cabo de Rede</h4>
-              <p><strong>Lab A</strong> · Fernando Domiciano</p>
-            </article>
-            <article class="oficina">
-              <h4>Introdução ao Roblox Studio</h4>
-              <p><strong>Lab B</strong> · Natã Sangalletti e Kauen</p>
-            </article>
-            <article class="oficina">
-              <h4>Usando Docker</h4>
-              <p><strong>Lab C</strong> · Gabriel Oliveira</p>
-            </article>
-            <article class="oficina">
-              <h4>Computação Gráfica</h4>
-              <p><strong>Lab D</strong> · Alan Oliveira</p>
-            </article>
-            <article class="oficina">
-              <h4>Desenvolvimento de Software com IA</h4>
-              <p><strong>Lab E</strong> · Julio Sabaini</p>
-            </article>
-            <article class="oficina">
-              <h4>Crimpagem de Cabo de Rede</h4>
-              <p><strong>Sala 1</strong> · Sued Policarpo</p>
-            </article>
-            <article class="oficina">
-              <h4>Fundamentos de Placas de Vídeo</h4>
-              <p>
-                <strong>Lab Procint</strong> · Cauã Almeida Camargo,
-                Marco Antonio Bacarin, Henrique Torriani Mezabarba
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section id="horarios" class="secao">
         <header>
           <p class="olho">Cronograma</p>
-          <h2>Programação do evento</h2>
+          <h2>Cronograma do evento</h2>
           <span class="marca-secao" aria-hidden="true"></span>
           <p>
             Confira a programação completa do IFROmatizando com data, horários,
@@ -263,134 +177,134 @@
             </thead>
             <tbody>
               <tr>
-                <td>29/10</td>
-                <td>13h30</td>
-                <td>4h</td>
-                <td>Oficina</td>
-                <td>Montagem de Computadores</td>
-                <td>Adriadina, Caio, Maria Eduarda, Mariana, Fabio, Waiser e Yasmin Moratto. (2°A)</td>
-                <td>Lab B</td>
-                <td>25</td>
+                <td data-label="Data">29/10</td>
+                <td data-label="Hora">13h30</td>
+                <td data-label="Duração">4h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Montagem de Computadores</td>
+                <td data-label="Responsável">Adriana, Caio, Maria Eduarda, Mariana, Fábio, Waiser e Yasmin Moratto</td>
+                <td data-label="Local">Lab B</td>
+                <td data-label="Vagas">25</td>
               </tr>
               <tr>
-                <td>29/10</td>
-                <td>14h</td>
-                <td>1h30</td>
-                <td>Palestra</td>
-                <td>As Crônicas do Registro: O Código, a Arte e o Papel</td>
-                <td>Leandro Gabriel</td>
-                <td>Miniauditório</td>
-                <td>70</td>
+                <td data-label="Data">29/10</td>
+                <td data-label="Hora">14h</td>
+                <td data-label="Duração">1h30</td>
+                <td data-label="Ação">Palestra</td>
+                <td data-label="Tema">As Crônicas do Registro: o código, a arte e o papel</td>
+                <td data-label="Responsável">Leandro Gabriel</td>
+                <td data-label="Local">Miniauditório</td>
+                <td data-label="Vagas">70</td>
               </tr>
               <tr>
-                <td>29/10</td>
-                <td>15h</td>
-                <td>2h30</td>
-                <td>Oficina</td>
-                <td>Ensino do Computador a Enxergar: Introdução à Visão Computacional com Python</td>
-                <td>Camila Santos</td>
-                <td>Lab A</td>
-                <td>35</td>
+                <td data-label="Data">29/10</td>
+                <td data-label="Hora">15h</td>
+                <td data-label="Duração">2h30</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Ensino do computador a enxergar: introdução à visão computacional com Python</td>
+                <td data-label="Responsável">Camila Santos</td>
+                <td data-label="Local">Lab A</td>
+                <td data-label="Vagas">35</td>
               </tr>
               <tr>
-                <td>29/10</td>
-                <td>16h</td>
-                <td>1h30</td>
-                <td>Palestra</td>
-                <td>O Futuro na Sua Mão – Automação com Arduino</td>
-                <td>Arno Douglas</td>
-                <td>Miniauditório</td>
-                <td>70</td>
+                <td data-label="Data">29/10</td>
+                <td data-label="Hora">16h</td>
+                <td data-label="Duração">1h30</td>
+                <td data-label="Ação">Palestra</td>
+                <td data-label="Tema">O futuro na sua mão — automação com Arduino</td>
+                <td data-label="Responsável">Arno Douglas</td>
+                <td data-label="Local">Miniauditório</td>
+                <td data-label="Vagas">70</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>08h</td>
-                <td>2h</td>
-                <td>Oficina</td>
-                <td>Introdução a Containers com Docker: Padronizando ambientes para consistência em aplicações</td>
-                <td>Gabriel Oliveira</td>
-                <td>Lab D</td>
-                <td>25</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">08h</td>
+                <td data-label="Duração">2h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Introdução a containers com Docker: padronizando ambientes para consistência em aplicações</td>
+                <td data-label="Responsável">Gabriel Oliveira</td>
+                <td data-label="Local">Lab D</td>
+                <td data-label="Vagas">25</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>08h</td>
-                <td>4h</td>
-                <td>Oficina</td>
-                <td>Introdução ao Universo 3D com o Blender</td>
-                <td>Julia e Ane</td>
-                <td>PROCINT</td>
-                <td>15</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">08h</td>
+                <td data-label="Duração">4h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Introdução ao universo 3D com o Blender</td>
+                <td data-label="Responsável">Julia e Ane</td>
+                <td data-label="Local">PROCINT</td>
+                <td data-label="Vagas">15</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>08H</td>
-                <td>4h</td>
-                <td>Oficina</td>
-                <td>Roblox Studio: Fundamentos de Criação, Lógica e Publicação</td>
-                <td>Nata Frederico</td>
-                <td>LAB A</td>
-                <td>35</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">08h</td>
+                <td data-label="Duração">4h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Roblox Studio: fundamentos de criação, lógica e publicação</td>
+                <td data-label="Responsável">Natã Frederico e Kauen</td>
+                <td data-label="Local">Lab A</td>
+                <td data-label="Vagas">35</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>10H</td>
-                <td>2H</td>
-                <td>Oficina</td>
-                <td>MÃO NA REDE – MONTE, CRIMPE E CONECTE!</td>
-                <td>Sued Policarpo</td>
-                <td>SALA 01</td>
-                <td>20</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">10h</td>
+                <td data-label="Duração">2h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Mão na rede — monte, crimpe e conecte!</td>
+                <td data-label="Responsável">Sued Policarpo</td>
+                <td data-label="Local">Sala 01</td>
+                <td data-label="Vagas">20</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>10H</td>
-                <td>2h</td>
-                <td>Oficina</td>
-                <td>Além do Prompt: O que é e Harness Engineering?</td>
-                <td>Cleyton Ferrari</td>
-                <td>Miniauditório</td>
-                <td>70</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">10h</td>
+                <td data-label="Duração">2h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Além do prompt: o que é e Harness Engineering?</td>
+                <td data-label="Responsável">Cleyton Ferrari</td>
+                <td data-label="Local">Miniauditório</td>
+                <td data-label="Vagas">70</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>08h</td>
-                <td>4h</td>
-                <td>Oficina</td>
-                <td>Do zero ao seu primeiro jogo: criando games com GDevelop</td>
-                <td>Julio Sabaini</td>
-                <td>Lab E</td>
-                <td>20</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">08h</td>
+                <td data-label="Duração">4h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Do zero ao seu primeiro jogo: criando games com GDevelop</td>
+                <td data-label="Responsável">Julio Sabaini</td>
+                <td data-label="Local">Lab E</td>
+                <td data-label="Vagas">20</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>08H</td>
-                <td>2H</td>
-                <td>Oficina</td>
-                <td>MÃO NA REDE – MONTE, CRIMPE E CONECTE!</td>
-                <td>Sued Policarpo</td>
-                <td>SALA 01</td>
-                <td>20</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">08h</td>
+                <td data-label="Duração">2h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Mão na rede — monte, crimpe e conecte!</td>
+                <td data-label="Responsável">Sued Policarpo</td>
+                <td data-label="Local">Sala 01</td>
+                <td data-label="Vagas">20</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>08h</td>
-                <td>2h</td>
-                <td>Oficina</td>
-                <td>GPU: O que é e para serve?</td>
-                <td>Cauã Almeida Camargo, Marco Antonio Bacarin, Henrique Torriani Mezabarba</td>
-                <td>SALA 02</td>
-                <td>20</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">08h</td>
+                <td data-label="Duração">2h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">GPU: o que é e para que serve?</td>
+                <td data-label="Responsável">Cauã Almeida Camargo, Marco Antônio Bacarin, Henrique Torriani Mezabarba</td>
+                <td data-label="Local">Sala 02</td>
+                <td data-label="Vagas">20</td>
               </tr>
               <tr>
-                <td>30/10</td>
-                <td>08h</td>
-                <td>4h</td>
-                <td>Oficina</td>
-                <td>Oficina de Robótica com LEGO</td>
-                <td>VINICIUS</td>
-                <td>Lab B</td>
-                <td>20</td>
+                <td data-label="Data">30/10</td>
+                <td data-label="Hora">08h</td>
+                <td data-label="Duração">4h</td>
+                <td data-label="Ação">Oficina</td>
+                <td data-label="Tema">Oficina de robótica com LEGO</td>
+                <td data-label="Responsável">Vinicius</td>
+                <td data-label="Local">Lab B</td>
+                <td data-label="Vagas">20</td>
               </tr>
             </tbody>
           </table>
@@ -410,9 +324,11 @@
               <img class="carrossel-imagem" src="fotos/edicao-1.jpg" alt="Participantes em uma edição anterior do IFROmatizando" loading="lazy">
               <img class="carrossel-imagem" src="fotos/edicao-2.jpg" alt="Oficina prática em laboratório do campus" loading="lazy">
               <img class="carrossel-imagem" src="fotos/edicao-3.PNG" alt="Público reunido no laboratório durante o workshop" loading="lazy">
+              <img class="carrossel-imagem" src="fotos/edicao-04.jpg" alt="Fotinha na frente do banner" loading="lazy">
               <img class="carrossel-imagem" src="fotos/edicao-1.jpg" alt="" aria-hidden="true" loading="lazy">
               <img class="carrossel-imagem" src="fotos/edicao-2.jpg" alt="" aria-hidden="true" loading="lazy">
               <img class="carrossel-imagem" src="fotos/edicao-3.PNG" alt="" aria-hidden="true" loading="lazy">
+              <img class="carrossel-imagem" src="fotos/edicao-04.jpg" alt="" aria-hidden="true" loading="lazy">
             </div>
           </div>
         </div>

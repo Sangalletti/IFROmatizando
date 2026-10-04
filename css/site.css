@@ -502,7 +502,7 @@ h1 {
   .titulo-com-logo {
     gap: 0.4rem;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .titulo-com-logo h1 {
@@ -730,292 +730,6 @@ h1 {
   color: var(--apagado);
 }
 
-.grupo-oficinas + .grupo-oficinas {
-  margin-top: 1.8rem;
-}
-
-.grupo-oficinas h3 {
-  margin: 0 0 0.15rem;
-  font-family: var(--display);
-  font-size: 1.45rem;
-  color: var(--verde-escuro);
-}
-
-.quando {
-  margin: 0 0 0.7rem;
-  color: var(--apagado);
-  font-size: 0.92rem;
-}
-
-/* Antes: duas colunas fixas que viravam uma só de repente em
-   860px. Agora o grid decide sozinho quantas colunas cabem —
-   fica fluido em qualquer largura, sem depender de um número
-   mágico de breakpoint. */
-.lista-oficinas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
-  column-gap: var(--esp-3);
-  row-gap: 0;
-}
-
-.oficina {
-  margin: 0;
-  padding: 0.75rem 0 0.75rem 0.85rem;
-  border-left: 3px solid var(--verde);
-  border-bottom: 1px dotted var(--linha);
-}
-
-.oficina h3,
-.oficina h4 {
-  margin: 0 0 0.35rem;
-  font-size: 1.02rem;
-  line-height: 1.25;
-}
-
-.oficina p {
-  margin: 0.1rem 0;
-  font-size: 0.9rem;
-  color: var(--apagado);
-}
-
-.oficina p strong {
-  color: var(--tinta);
-  font-weight: 600;
-}
-
-.cronograma-wrapper {
-  width: 100%;
-  margin-top: var(--esp-3);
-  overflow-x: auto;
-}
-
-.cronograma-tabela {
-  width: 100%;
-  min-width: 1000px;
-  border-collapse: collapse;
-  background: var(--branco);
-  border: 1px solid var(--linha);
-  font-size: 0.92rem;
-}
-
-.cronograma-tabela th,
-.cronograma-tabela td {
-  padding: 0.7rem 0.65rem;
-  border: 1px solid var(--linha);
-  text-align: left;
-  vertical-align: middle;
-}
-
-.cronograma-tabela thead th {
-  background: var(--verde-escuro);
-  color: var(--branco);
-  font-family: var(--display);
-  font-size: 1.02rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.cronograma-tabela tbody tr:nth-child(even) {
-  background: var(--papel-2);
-}
-
-.cronograma-tabela tbody td:nth-child(5) {
-  min-width: 20rem;
-}
-
-/* Grade de horários: cabeçalho do resumo, cards do roteiro
-   escolhido e a grade de LABs propriamente dita. */
-.resumo-cabecalho {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem 1rem;
-  margin-top: var(--esp-3);
-}
-
-.resumo-cabecalho h3 {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 1.3rem;
-  color: var(--verde-escuro);
-}
-
-.limpar-btn {
-  border: 1px solid var(--linha);
-  background: var(--branco);
-  color: var(--tinta);
-  font: inherit;
-  font-size: 0.85rem;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  transition: background var(--transicao), border-color var(--transicao);
-}
-
-.limpar-btn:hover {
-  background: var(--papel-2);
-  border-color: var(--apagado);
-}
-
-.resumo-roteiro {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
-  gap: var(--esp-2);
-  margin: 0.65rem 0 var(--esp-3);
-}
-
-.resumo-item {
-  background: var(--papel-2);
-  border-left: 3px solid var(--linha);
-  padding: 0.65rem 0.85rem;
-  transition: background var(--transicao), border-color var(--transicao);
-}
-
-.resumo-rotulo {
-  margin: 0 0 0.2rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--apagado);
-}
-
-.resumo-estado {
-  margin: 0;
-  font-size: 0.92rem;
-  font-weight: 600;
-}
-
-.resumo-item[data-estado="ok"] {
-  background: rgb(31 58 92 / 8%);
-  border-left-color: var(--verde);
-}
-
-.resumo-item[data-estado="ok"] .resumo-estado {
-  color: var(--verde-escuro);
-}
-
-.resumo-item[data-estado="conflito"] {
-  background: rgb(156 59 46 / 9%);
-  border-left-color: var(--vermelho);
-}
-
-.resumo-item[data-estado="conflito"] .resumo-estado {
-  color: var(--vermelho-escuro);
-}
-
-.labs-grade {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
-  gap: var(--esp-3);
-}
-
-.lab-card {
-  background: var(--branco);
-  border: 1px solid var(--linha);
-  padding: var(--esp-2);
-}
-
-.lab-card h3 {
-  margin: 0 0 0.5rem;
-  padding-bottom: 0.45rem;
-  font-family: var(--display);
-  font-size: 1.25rem;
-  color: var(--verde-escuro);
-  border-bottom: 2px solid var(--verde);
-}
-
-.lab-oficinas {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.oficina-slot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px dotted var(--linha);
-  transition: background var(--transicao), border-color var(--transicao);
-}
-
-.oficina-slot:last-child {
-  border-bottom: 0;
-}
-
-.oficina-info {
-  flex: 1 1 12rem;
-  min-width: 0;
-}
-
-.oficina-horario {
-  margin: 0 0 0.2rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--apagado);
-}
-
-.oficina-info h4 {
-  margin: 0 0 0.2rem;
-  font-size: 0.98rem;
-  line-height: 1.25;
-}
-
-.oficina-responsavel {
-  margin: 0;
-  font-size: 0.88rem;
-  color: var(--apagado);
-}
-
-.selecionar-btn {
-  flex-shrink: 0;
-  border: 1px solid var(--verde);
-  background: transparent;
-  color: var(--verde-escuro);
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.45rem 0.85rem;
-  cursor: pointer;
-  transition: background var(--transicao), color var(--transicao), border-color var(--transicao);
-}
-
-.selecionar-btn:hover {
-  background: var(--papel-2);
-}
-
-.selecionar-btn[aria-pressed="true"] {
-  background: var(--verde);
-  border-color: var(--verde);
-  color: var(--branco);
-}
-
-/* Oficina marcada sem conflito de horário. */
-.oficina-slot.sem-conflito {
-  background: rgb(31 58 92 / 6%);
-  border-left: 3px solid var(--verde);
-  padding-left: 0.65rem;
-}
-
-/* Oficina marcada que colide com outra escolha no mesmo horário:
-   o botão também vira vermelho, para ficar claro qual precisa ser
-   desmarcada. */
-.oficina-slot.conflito {
-  background: rgb(156 59 46 / 8%);
-  border-left: 3px solid var(--vermelho);
-  padding-left: 0.65rem;
-}
-
-.oficina-slot.conflito .selecionar-btn[aria-pressed="true"] {
-  background: var(--vermelho);
-  border-color: var(--vermelho);
-  color: var(--branco);
-}
 
 /* Antes: 1.2fr / 0.9fr / 0.9fr fixas. A primeira imagem continua
    se destacando pela proporção mais alta (aspect-ratio abaixo),
@@ -1120,6 +834,63 @@ figcaption {
 
 .rodape address {
   font-style: normal;
+}
+
+.cronograma-wrapper {
+  margin-top: var(--esp-3);
+  overflow-x: auto;
+  border: 1px solid var(--linha);
+  border-radius: 0.9rem;
+  background: var(--branco);
+  box-shadow: 0 14px 30px rgb(15 32 53 / 6%);
+}
+
+.cronograma-tabela {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--branco);
+  font-size: 0.92rem;
+}
+
+.cronograma-tabela th,
+.cronograma-tabela td {
+  padding: 0.8rem 0.7rem;
+  border-right: 1px solid var(--linha);
+  border-bottom: 1px solid var(--linha);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.cronograma-tabela th:last-child,
+.cronograma-tabela td:last-child {
+  border-right: 0;
+}
+
+.cronograma-tabela tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cronograma-tabela thead th {
+  background: linear-gradient(180deg, var(--verde-escuro), #0d5a45);
+  color: var(--branco);
+  font-family: var(--display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cronograma-tabela tbody tr:nth-child(even) {
+  background: var(--papel-2);
+}
+
+.cronograma-tabela tbody tr:nth-child(odd) {
+  background: var(--branco);
+}
+
+.cronograma-tabela tbody td:nth-child(5) {
+  min-width: 20rem;
 }
 
 .redes {
@@ -1478,76 +1249,80 @@ figcaption {
     font-size: 0.96rem;
   }
 
-  .lista-oficinas {
-    grid-template-columns: 1fr;
+  .cronograma-wrapper {
+    overflow: visible;
   }
 
-  .grupo-oficinas + .grupo-oficinas {
-    margin-top: 1.4rem;
-  }
-
-  .grupo-oficinas h3 {
-    font-size: 1.25rem;
-  }
-
-  .resumo-cabecalho {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 0.7rem;
-  }
-
-  .resumo-cabecalho h3 {
-    font-size: 1.15rem;
-  }
-
-  .limpar-btn {
+  .cronograma-tabela,
+  .cronograma-tabela thead,
+  .cronograma-tabela tbody,
+  .cronograma-tabela tr,
+  .cronograma-tabela th,
+  .cronograma-tabela td {
+    display: block;
     width: 100%;
-    min-height: 2.7rem;
+    box-sizing: border-box;
   }
 
-  .resumo-roteiro {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
+  .cronograma-tabela {
+    min-width: 0;
+    border: 0;
+    background: transparent;
   }
 
-  .resumo-item {
-    padding: 0.7rem 0.75rem;
+  .cronograma-tabela thead {
+    display: none;
   }
 
-  .labs-grade {
-    grid-template-columns: 1fr;
-    gap: var(--esp-2);
-  }
-
-  .lab-card {
-    padding: 0.8rem;
-  }
-
-  .lab-card h3 {
-    font-size: 1.15rem;
-  }
-
-  .oficina-slot {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 0.7rem;
-    padding: 0.8rem 0;
-  }
-
-  .oficina-slot.sem-conflito,
-  .oficina-slot.conflito {
-    padding-left: 0.65rem;
-  }
-
-  .oficina-info h4 {
-    font-size: 0.95rem;
-  }
-
-  .selecionar-btn {
+  .cronograma-tabela tbody {
+    display: grid;
+    gap: 0.75rem;
     width: 100%;
-    min-height: 2.7rem;
-    text-align: center;
+  }
+
+  .cronograma-tabela tbody tr {
+    width: 100%;
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--linha);
+    border-radius: 0.9rem;
+    padding: 0.75rem 0.8rem;
+    box-shadow: 0 10px 24px rgb(15 32 53 / 7%);
+  }
+
+  .cronograma-tabela tbody tr:nth-child(even) {
+    background: #fff;
+  }
+
+  .cronograma-tabela tbody tr:nth-child(odd) {
+    background: #fff;
+  }
+
+  .cronograma-tabela td {
+    display: grid;
+    grid-template-columns: minmax(4.8rem, 6.6rem) 1fr;
+    gap: 0.45rem 0.7rem;
+    padding: 0.55rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--linha);
+    text-align: left;
+  }
+
+  .cronograma-tabela td:last-child {
+    border-bottom: 0;
+  }
+
+  .cronograma-tabela td::before {
+    content: attr(data-label);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--verde-escuro);
+  }
+
+  .cronograma-tabela td:nth-child(5) {
+    min-width: 0;
   }
 
   .galeria {
@@ -1570,16 +1345,15 @@ figcaption {
     gap: 1rem;
     width: 100%;
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin: 0;
+    padding: 1rem;
     box-sizing: border-box;
   }
 
   #inscricao .btn {
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% - 0.5rem);
+    max-width: calc(100% - 0.5rem);
+    margin-inline: 0.25rem;
     box-sizing: border-box;
   }
 
@@ -1643,14 +1417,6 @@ figcaption {
     font-size: clamp(1.6rem, 8.5vw, 2rem);
   }
 
-  .oficina {
-    padding-left: 0.7rem;
-  }
-
-  .resumo-rotulo,
-  .oficina-horario {
-    font-size: 0.66rem;
-  }
 }
 
 /* Garante que componentes com números/URLs longas não criem scroll lateral. */
@@ -1668,9 +1434,9 @@ figcaption {
   }
 
   #inscricao {
-    width: calc(100% + 1.5rem);
-    margin-left: -0.75rem;
-    margin-right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0.85rem;
   }
 
   h1 {
@@ -1719,32 +1485,23 @@ figcaption {
 @media (hover: none) and (pointer: coarse) {
   .nav-principal a,
   .btn,
-  .limpar-btn,
-  .selecionar-btn,
   .menu-btn {
     touch-action: manipulation;
   }
 
   .nav-principal a:hover,
   .btn-cheio:hover,
-  .btn-vazio:hover,
-  .limpar-btn:hover,
-  .selecionar-btn:hover {
+  .btn-vazio:hover {
     background: initial;
     color: inherit;
   }
 
   .btn-cheio,
-  .selecionar-btn[aria-pressed="true"],
   .menu-btn[aria-expanded="true"] {
     color: var(--branco);
   }
 
   .btn-cheio {
-    background: var(--verde);
-  }
-
-  .selecionar-btn[aria-pressed="true"] {
     background: var(--verde);
   }
 
@@ -1755,15 +1512,5 @@ figcaption {
   .btn-vazio:hover {
     background: transparent;
     color: var(--verde-escuro);
-  }
-
-  .selecionar-btn:hover {
-    background: transparent;
-    color: var(--verde-escuro);
-  }
-
-  .limpar-btn:hover {
-    background: var(--branco);
-    border-color: var(--linha);
   }
 }
