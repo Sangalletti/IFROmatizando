@@ -1,5 +1,5 @@
 (function () {
-  var alvo = new Date("2026-10-29T09:00:00-04:00");
+  var alvo = new Date("2026-10-29T08:00:00-04:00");
   var raiz = document.getElementById("tempo-evento");
   var botao = document.querySelector(".menu-btn");
   var nav = document.querySelector(".nav-principal");
@@ -23,7 +23,7 @@
 
     var resto = alvo.getTime() - Date.now();
     if (resto < 0) {
-      raiz.setAttribute("datetime", "2026-10-29T09:00:00-04:00");
+      raiz.setAttribute("datetime", "2026-10-29T08:00:00-04:00");
       raiz.innerHTML =
         '<p class="evento-hoje">O workshop já começou. Confira o cronograma abaixo.</p>';
       return;
@@ -37,7 +37,7 @@
     var minutos = Math.floor(s / 60);
     var segundos = s % 60;
 
-    raiz.setAttribute("datetime", "2026-10-29T09:00:00-04:00");
+    raiz.setAttribute("datetime", "2026-10-29T08:00:00-04:00");
     raiz.innerHTML =
       bloco(dois(dias), "dias") +
       bloco(dois(horas), "horas") +
